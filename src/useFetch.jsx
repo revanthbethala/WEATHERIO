@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const apiKey = "204b4ab12a77f497397d266df387e124";
-
+const apiKey = process.env.VITE_WEATHER_API_KEY;
 export function useFetch({ cityName }) {
 
    const [isLoading, setIsLoading] = useState(false)

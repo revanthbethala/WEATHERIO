@@ -18,7 +18,3 @@
 - **React**: JavaScript library for building user interfaces.
 - **OpenWeather API**: Provides weather data.
 - **Tailwind CSS** : Adding Styling to the Web Page.
-
-```
-
-```
