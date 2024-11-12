@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="h-screen bg-gradient-to-tl from-sky-300 to-violet-400">
       <div className="flex items-center justify-center p-5 flex-col gap-10">
-        <h1 className="font-bold text-3xl text-purple-900 animate-bounce duration-100 ">WEATHERIO</h1>
+        <h1 className="font-bold text-3xl text-fuchsia-900 animate-bounce font-lora ">WEATHERIO</h1>
         <Search />
       </div>
     </div>
@@ -26,11 +26,12 @@ function Search() {
     <div className="flex flex-col items-center justify-center">
       <form onSubmit={handleSubmit} className="py-6">
         <input type="text" name="cityName" placeholder="Search for a Place..." value={city} onChange={e => setCity(e.target.value)} autoFocus
-          className=" md:w-[30rem] h-12 bg-white p-2 rounded-md  border-stone-700 border-2" />
-        <input type="submit" value="Search" className="mx-2 py-2 px-3 font-bold text-white text-lg hover:-translate-y-2 ease-in-out duration-150 cursor-pointer border-none bg-violet-700 rounded-lg" />
+          className=" md:w-[38rem] h-12 bg-white px-3 rounded-3xl border-none font-semibold" />
+        <button className="mx-2 p-2 font-semibold cursor-pointer bg-slate-600 hover:bg-slate-800 ease-in duration-150 rounded-3xl -translate-x-[3.2rem] translate-y-[0.3rem] w-10 h-10"><img src="src/assets/search.png" alt="search" /></button>
       </form >
       <div>
-        {isLoading || error && <Loader isLoading={isLoading} error={error} />}
+        {(isLoading && !error) && <div className="w-10 h-10 my-40 border-dotted rounded-full border-slate-700 border-8 animate-spin delay-200 ease-in"></div>}
+        {error && <p className="text-2xl text-red-700 font-semibold py-24">{error}</p>}
         {!error && !isLoading && fetchCity &&
           <WeatherData weatherDetails={weatherDetails} />
         }
@@ -39,11 +40,6 @@ function Search() {
   )
 }
 
-function Loader({ isLoading, error }) {
-  return (
-    <h1 className={`text-center font-[650] text-2xl py-20 ${error && "text-red-600"} animate-pulse`}>{isLoading && !error ? "Loading... " : error + " Please try again"}</h1>
-  )
-}
 
 function WeatherData({ weatherDetails }) {
   const { place, temp, pressure, humidity, feelsLike, climate, windSpeed } = weatherDetails
@@ -54,9 +50,9 @@ function WeatherData({ weatherDetails }) {
         <img src={`src/assets/cloudy.png`} alt="image" />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-10 items-between justify-center">
-        <p className={`font-bold text-xl`}>Actual Temp <br />{temp}°C</p>
+        <p className="font-bold text-xl">Actual Temp <br />{temp}°C</p>
         <p className="font-bold text-xl">Feels Like <br />{feelsLike}°C</p>
-        <p className="font-bold text-xl">Atm Pressure <br />{pressure}mb</p>
+        <p className="font-bold text-xl">Atm Pressure <br />{pressure}mbar</p>
         <p className="font-bold text-xl">Humidity <br />{humidity}%</p>
         <p className="font-bold text-xl">Wind Speed <br />{windSpeed}m/s</p>
         <p className="font-bold text-xl">Weather  <br />{climate}</p>

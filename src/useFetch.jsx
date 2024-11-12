@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-
-const apiKey = process.env.VITE_WEATHER_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 export function useFetch({ cityName }) {
 
    const [isLoading, setIsLoading] = useState(false)
@@ -19,6 +18,7 @@ export function useFetch({ cityName }) {
             setIsLoading(true)
             const request = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`);
             const response = await request.json();
+            console.log(response)
             if (request.ok === false)
                throw new Error("City not found!")
             console.log(response)
