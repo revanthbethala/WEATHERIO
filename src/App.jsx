@@ -27,7 +27,7 @@ function Search() {
       <form onSubmit={handleSubmit} className="py-6">
         <input type="text" name="cityName" placeholder="Search for a Place..." value={city} onChange={e => setCity(e.target.value)} autoFocus
           className=" md:w-[38rem] h-12 bg-white px-3 rounded-3xl border-none font-semibold" />
-        <button className="mx-2 p-2 font-semibold cursor-pointer bg-slate-600 hover:bg-slate-800 ease-in duration-150 rounded-3xl -translate-x-[3.2rem] translate-y-[0.3rem] w-10 h-10"><img src="src/assets/search.png" alt="search" /></button>
+        <button className="mx-2 p-2 font-semibold cursor-pointer bg-slate-600 hover:bg-slate-800 ease-in duration-150 rounded-3xl -translate-x-[3.2rem] translate-y-[0.3rem] w-10 h-10"><img src="/search.png" alt="search" /></button>
       </form >
       <div>
         {(isLoading && !error) && <div className="w-10 h-10 my-40 border-dotted rounded-full border-slate-700 border-8 animate-spin delay-200 ease-in"></div>}
@@ -47,7 +47,7 @@ function WeatherData({ weatherDetails }) {
     <div className="p-5 w-full flex flex-col justify-center items-center gap-4 font-lora rounded-2xl bg-white">
       <h2 className="font-semibold text-2xl text-center py-2">CITY : {place?.toUpperCase()}</h2>
       <div className="w-20 h-20">
-        <img src={`src/assets/cloudy.png`} alt="image" />
+        <img src={`/cloudy.png`} alt="image" />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-10 items-between justify-center">
         <p className="font-bold text-xl">Actual Temp <br />{temp}°C</p>
