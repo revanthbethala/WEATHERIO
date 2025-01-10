@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        lora: ["Lora", "sans", "arial"],
+        lora: ["Lora", "sans", ""],
       },
     },
   },
